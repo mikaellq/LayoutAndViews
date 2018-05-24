@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "CheckNumber";
+}
+
+<h2>Check if number is 10</h2>
+
+@using (Html.BeginForm("CheckNumber", "Home", FormMethod.Post))
+{
+    <input type="number" name="input" value="0" />
+    <input type="submit" class="btn-primary" value="Check" />
+}
+
+@if (ViewBag.Result != null)
+{
+    @ViewBag.Result
+}

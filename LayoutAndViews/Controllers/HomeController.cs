@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LayoutAndViews.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,19 @@ namespace LayoutAndViews.Controllers
 
         public ActionResult About()
         {
+            return View();
+        }
+
+        public ActionResult CheckNumber()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CheckNumber(double input)
+        {
+            ViewBag.Result = NumberCheck.CheckNumber(input);
+
             return View();
         }
     }
