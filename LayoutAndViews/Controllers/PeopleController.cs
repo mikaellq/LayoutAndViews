@@ -12,28 +12,22 @@ namespace LayoutAndViews.Controllers
         // GET: People
         public ActionResult Index()
         {
-            List<Person> listOfPeople = new List<Person>();
-            Person p1 = new Person();
-            Person p2 = new Person();
-            Person p3 = new Person();
-            p1.Name = "Kalle";
-            p1.Age = 25;
-            p1.Address = "Vägen 12";
 
-            p2.Name = "Anna";
-            p2.Age = 32;
-            p2.Address = "Gatan 13";
-
-            p3.Name = "Anders";
-            p3.Age = 25;
-            p3.Address = "Stigen 3";
-
-            listOfPeople.Add(p1);
-            listOfPeople.Add(p2);
-            listOfPeople.Add(p3);
-
-            return View(listOfPeople);
+            return View(ListModel.ListOfPeople);
         }
 
+       
+        public ActionResult Create()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public ActionResult Create(string name, string address, int age)
+        {
+            ListModel.ListOfPeople.Add(new Person { Name = name, Address = address, Age = age });
+
+            return RedirectToAction("Index");
+        }
     }
 }

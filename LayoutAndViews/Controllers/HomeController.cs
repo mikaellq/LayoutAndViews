@@ -12,6 +12,10 @@ namespace LayoutAndViews.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ListModel.ListOfPeople.Add(new Person { Name = "Krall", Age = 30, Address = "Storgatan 23" });
+            ListModel.ListOfPeople.Add(new Person { Name = "Jonathan", Age = 33, Address = "Gatan 5" });
+            ListModel.ListOfPeople.Add(new Person { Name = "Linus", Age = 44, Address = "Vägen 7" });
+
             return View();
         }
 
